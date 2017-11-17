@@ -15,7 +15,7 @@ public class MyDogProgram {
 			System.out.print("Enter a new heart rate for this dog (negative value to exit):  ");
 			newHeartRate = in.nextInt();
 			myDog.ChangeHeartRate(newHeartRate);
-			System.out.println("It's heart rate is now. " + myDog.getHeartRate());
+			System.out.println("It's heart rate is now " + myDog.getHeartRate());
 		}
 		in.close();
 		myDog.Bark();
