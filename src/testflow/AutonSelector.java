@@ -1,5 +1,6 @@
 package testflow;
 
+import java.util.regex.Pattern;
 
 public class AutonSelector {
 
@@ -88,9 +89,27 @@ public class AutonSelector {
 
 	public static void main(String[] args) {
 
+		
+		
 		int delay = Integer.parseInt(args[0]);
 		String robotPos = args[1], gameData = args[2], targetScale = args[3];
 		
+		// Validate gameData is 3 char consisting of L or R
+		// boolean valid = Pattern.matches("^(L|R)(L|R)(L|R)$", gameData.toUpperCase());
+		boolean valid = Pattern.matches("[LR]{3}", gameData.toUpperCase());
+		if (!valid) {
+			System.out.println("gamedata is invalid");
+		} 
+		
+		
+		/* test combinations 
+		System.out.println("LrL=" + Pattern.matches("[LR]{3}", "LrL"));
+		System.out.println("LRL=" + Pattern.matches("[LR]{3}", "LRL"));
+		System.out.println("LrLx=" + Pattern.matches("[LR]{3}", "LrLx"));
+		System.out.println("xrL=" + Pattern.matches("[LR]{3}", "xrL"));
+		System.out.println("RRR=" + Pattern.matches("[LR]{3}", "RRR"));
+		*/
+
 		//RobotMap.delayInSeconds = (int) SmartDashboard.getNumber("Auton Delay", 0);
 		RobotMap.delayInSeconds = delay;
 		// String robotPos = SmartDashboard.getString("Robot Start Pos (L,R, or C)", "Non Received");
